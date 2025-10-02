@@ -1,0 +1,12 @@
+<%= form_with model: @recipe do |f| %>
+  <div class="col-4">
+    <%= f.label :title %>
+    <%=f.text_field :title, placeholder: "Recipe title" %>
+  </div>
+
+  <div>
+    <%= f.rich_textarea :content %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
