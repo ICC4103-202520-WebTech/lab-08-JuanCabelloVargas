@@ -1,0 +1,26 @@
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[35m (75.4ms)[0m  [1m[35mCREATE DATABASE "lab_06_juan_cabello_vargas_development" ENCODING = 'unicode' /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[35m (44.4ms)[0m  [1m[35mCREATE DATABASE "lab_06_juan_cabello_vargas_test" ENCODING = 'unicode' /*application='Lab06JuanCabelloVargas'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-10-02 16:48:30 -0300
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab06JuanCabelloVargas'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/nuaj/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nuaj/.rbenv/versions/3.4.5/lib/ruby/gems/3.4.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 5.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5782401454358075085) /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (10.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-10-02 19:58:09.987053', '2025-10-02 19:58:09.987056') RETURNING "key" /*application='Lab06JuanCabelloVargas'*/[0m
+Migrating to CreateRecipesTable (20251002195257)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "title" character varying NOT NULL, "cook_time" integer NOT NULL, "difficulty" character varying NOT NULL, "instructions" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251002195257') RETURNING "version" /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5782401454358075085) /*application='Lab06JuanCabelloVargas'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab06JuanCabelloVargas'*/[0m
