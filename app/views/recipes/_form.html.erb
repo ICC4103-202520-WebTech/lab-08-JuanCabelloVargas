@@ -5,6 +5,16 @@
   </div>
 
   <div>
+    <%= f.label :difficulty %>
+    <%= f.text_field :difficulty, placeholder: "Difficulty of the recipe" %>
+  </div>
+
+  <div>
+    <%= f.label :cook_time %>
+    <%= f.number_field :cook_time, placeholder: "Cook time of the recipe" %>
+  </div>
+
+  <div>
     <%= f.rich_textarea :content %>
   </div>
 
