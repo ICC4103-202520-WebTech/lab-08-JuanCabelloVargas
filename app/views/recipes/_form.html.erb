@@ -15,10 +15,13 @@
       <%= f.number_field :cook_time, placeholder: "Cook time of the recipe", class: "form-control"%>
     </div>
 
-    <div class="col-8">
+    <div class="col-8 mb-3">
       <%= f.rich_textarea :content %>
     </div>
-
-    <%= f.submit "Save", class: "btn btn-primary" %>
+    
+    <div class="d-flex gap-2">
+      <%= link_to "Back to recipe", recipe_path(@recipe), class: "btn btn-outline-secondary" %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>
