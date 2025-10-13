@@ -1,20 +1,25 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [ :show, :edit, :update, :destroy ]
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :set_recipe_public, only: [ :show ]
+  before_action :set_owned_recipe, only: [ :edit, :update, :destroy ]
 
   def index
-    @recipes = Recipe.all
+    if user_signed_in? && params[:mine].present?
+      @recipes = current_user.recipes.order(created_at: :desc)
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def create
-    recipe = Recipe.new recipe_params
+    recipe = current_user.recipes.build recipe_params
     if recipe.save
       redirect_to recipe_path(recipe)
     else
@@ -43,7 +48,11 @@ class RecipesController < ApplicationController
       params.require(:recipe).permit(:title, :content, :difficulty, :cook_time)
     end
 
-    def set_recipe
+    def set_recipe_public
       @recipe = Recipe.find(params[:id])
+    end
+
+    def set_owned_recipe
+      @recipe = current_user.recipes.find(params[:id])
     end
 end
