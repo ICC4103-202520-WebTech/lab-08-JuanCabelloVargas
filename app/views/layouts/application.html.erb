@@ -47,6 +47,14 @@
         </div>
       </div>
     </nav>
+    <div class="container mt-3">
+      <% if notice %>
+        <div class="alert alert-success fade show">
+          <%= notice %>
+          <button_type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close", aria-label="close"></button>   
+        </div>
+      <%end%>
+    </div>
       
     <%= yield %>
   </body>

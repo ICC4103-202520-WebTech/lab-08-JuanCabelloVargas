@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   def index
     if user_signed_in? && params[:mine].present?
       @recipes = current_user.recipes.order(created_at: :desc)
+      flash.now[:alert] = "You don't have recipes." if @recipes.empty?
     else
       @recipes = Recipe.all
     end
@@ -54,5 +55,9 @@ class RecipesController < ApplicationController
 
     def set_owned_recipe
       @recipe = current_user.recipes.find(params[:id])
+
+      unless @recipe
+        redirect_to recipes_path, alert: "You do not have permission to edit or destroy"
+      end
     end
 end
