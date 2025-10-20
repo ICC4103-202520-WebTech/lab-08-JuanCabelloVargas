@@ -46,3 +46,9 @@ By the end of this lab:
 - Admins can manage all recipes.
 - Interface updated to reflect available actions according to user role.
 
+
+### Admin:
+Use credentials
+
+*user:* admin@rorcipes.com
+*password:* password123
