@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+#
+
+puts "🧹 Cleaning database..."
+Recipe.destroy_all
+User.destroy_all
+
+puts "👑 Creating admin user..."
+
+admin = User.create!(
+  email: "admin@rorcipes.com",
+  password: "password123",
+  password_confirmation: "password123",
+  role: :admin
+)
+
+puts "✅ Admin created successfully!"
+puts "   Email: #{admin.email}"
+puts "   Password: password123"
+puts "   Role: #{admin.role}"
